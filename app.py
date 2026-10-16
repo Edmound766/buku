@@ -5,12 +5,35 @@ import re
 import pandas as pd
 import pdfplumber
 import streamlit as st
+import streamlit.components.v1 as components
 from openpyxl.styles import Alignment, Border, Font, PatternFill, Side
 from openpyxl.utils import get_column_letter
+
+
+def display_ad_banner():
+    # Insert your AdSense or custom ad HTML/JS script here
+    ad_code = """
+    <div style="display:flex; justify-content:center; align-items:center; padding: 10px; background-color: #f9f9f9; border-radius: 8px;">
+        <!-- Replace with your actual Ad Network Code snippet -->
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+             data-ad-slot="1234567890"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+    """
+    components.html(ad_code, height=100)
+
 
 st.set_page_config(page_title="Buku - M-Pesa to Excel", page_icon="💳", layout="wide")
 
 st.title("💳 Buku")
+display_ad_banner()
 
 st.subheader("Convert your M-Pesa statements into clean, professional Excel sheets instantly.")
 st.markdown("---")
